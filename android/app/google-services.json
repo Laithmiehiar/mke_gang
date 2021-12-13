@@ -1,0 +1,34 @@
+{
+  "project_info": {
+    "project_number": "634992444739",
+    "project_id": "mke-gang",
+    "storage_bucket": "mke-gang.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634992444739:android:35d595501b721940dfdbf6",
+        "android_client_info": {
+          "package_name": "com.mkegang.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5t7ufYYsyI7QCL09Tv8JZL0Esy0P-R4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634992444739-9qh9pb25r2pqfu2us9cb4jtf76qt1psf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
