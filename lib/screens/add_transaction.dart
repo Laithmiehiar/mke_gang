@@ -295,9 +295,23 @@ class AmountsTabsState extends State<AmountsTabs> {
                         tabs: _tabs),
                   ),
                   Expanded(
-                    child: TabBarView(children: [
-                      Center(
-                        child: ListView(
+                    child: StreamBuilder(
+                      stream: FirebaseFirestore.instance
+                          .collection("users")
+                          .snapshots(),
+                      initialData: [],
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {
+                        if (!snapshot.hasData ||
+                            snapshot.connectionState ==
+                                ConnectionState.waiting ||
+                            snapshot.connectionState == ConnectionState.none) {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else {
+                          return TabBarView(children: [
+                            Center(
+                              child: ListView(
                           children: snapshot.data?.docs.map<Widget>((document) {
                             // widget.checkedValues.putIfAbsent(
                             //     '${document["accountId"]}', () => false);
