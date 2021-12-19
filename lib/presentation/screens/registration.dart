@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:mke_gang/constants/color_constants.dart';
 import 'package:mke_gang/constants/resources.dart';
 import 'package:mke_gang/custom_icons/MyFlutterApp.dart';
-import 'package:mke_gang/screens/home.dart';
+import 'package:mke_gang/presentation/screens/home.dart';
 import 'package:mke_gang/services/auth.dart';
 import 'package:mke_gang/services/users.dart';
 
@@ -138,54 +138,54 @@ class RegistrationState extends State<Registration> {
                               final isValid = formKey.currentState!.validate();
                               FocusScope.of(context).unfocus();
 
-                              if (isValid) {
-                                formKey.currentState!.save();
+                              // if (isValid) {
+                              //   formKey.currentState!.save();
 
-                                final String retVal =
-                                    await Auth(auth: widget.auth).createAccount(
-                                  email: _emailController.text,
-                                  password: _passwordController.text,
-                                );
-                                if (retVal == "Success") {
-                                  final String result = await Users(
-                                          auth: widget.auth,
-                                          firestore: widget.firestore)
-                                      .addUser(
-                                          email: _emailController.text,
-                                          name: _nameController.text,
-                                          dateOfBirth: _dobController.text,
-                                          address: _addressController.text,
-                                          phone: _phoneController.text);
+                              //   final String retVal =
+                              //       await Auth(auth: widget.auth).createAccount(
+                              //     email: _emailController.text,
+                              //     password: _passwordController.text,
+                              //   );
+                              //   if (retVal == "Success") {
+                              //     final String result = await Users(
+                              //             auth: widget.auth,
+                              //             firestore: widget.firestore)
+                              //         .addUser(
+                              //             email: _emailController.text,
+                              //             name: _nameController.text,
+                              //             dateOfBirth: _dobController.text,
+                              //             address: _addressController.text,
+                              //             phone: _phoneController.text);
 
-                                  if (result == "Success") {
-                                    _emailController.clear();
-                                    _nameController.clear();
-                                    _dobController.clear();
-                                    _addressController.clear();
-                                    _phoneController.clear();
-                                    _passwordController.clear();
+                              //     if (result == "Success") {
+                              //       _emailController.clear();
+                              //       _nameController.clear();
+                              //       _dobController.clear();
+                              //       _addressController.clear();
+                              //       _phoneController.clear();
+                              //       _passwordController.clear();
 
-                                    Navigator.of(context).pushAndRemoveUntil(
-                                        MaterialPageRoute(
-                                            builder: (context) => Home(
-                                                auth: widget.auth,
-                                                firestore: widget.firestore)),
-                                        (Route<dynamic> route) => false);
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(retVal),
-                                      ),
-                                    );
-                                  }
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(retVal),
-                                    ),
-                                  );
-                                }
-                              }
+                              //       Navigator.of(context).pushAndRemoveUntil(
+                              //           MaterialPageRoute(
+                              //               builder: (context) => Home(
+                              //                   auth: widget.auth,
+                              //                   firestore: widget.firestore)),
+                              //           (Route<dynamic> route) => false);
+                              //     } else {
+                              //       ScaffoldMessenger.of(context).showSnackBar(
+                              //         SnackBar(
+                              //           content: Text(retVal),
+                              //         ),
+                              //       );
+                              //     }
+                              //   } else {
+                              //     ScaffoldMessenger.of(context).showSnackBar(
+                              //       SnackBar(
+                              //         content: Text(retVal),
+                              //       ),
+                              //     );
+                              //   }
+                              // }
                             },
                             color: Colors.redAccent,
                             shape: RoundedRectangleBorder(
